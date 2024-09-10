@@ -143,6 +143,8 @@ const TRANSLATIONS = {
       description:
         "이 워크스페이스에서 사용할 특정 LLM 제공자와 모델입니다. 기본적으로 시스템 LLM 제공자와 설정을 사용합니다.",
       search: "모든 LLM 제공자 검색",
+      noModelSupport: "이 제공자는 아직 멀티 모델 지원이 지원되지 않습니다.",
+      systemModelLink: "이 워크스페이스는 시스템에 설정된 모델을 사용합니다.",
     },
     model: {
       title: "워크스페이스 채팅 모델",
@@ -280,12 +282,91 @@ const TRANSLATIONS = {
     },
   },
 
+  //workspace
+
+  workspace: {
+    welcome: "새 작업 공간에 오신 것을 환영합니다.",
+    uploadPrompt: "시작하려면",
+    uploadDocument: "문서를 업로드",
+    orSendMessage: "하거나 채팅을 보내십시오.",
+    sendMessagePrompt: "시작하려면 채팅을 보내십시오.",
+  },
+
+  //prompt
+  promptInput: {
+    placeholder: "메시지 보내기",
+    sendTooltip: "워크스페이스에 프롬프트 메시지 보내기",
+    sendMessage: "메시지 보내기",
+  },
+
+  //thread
+  threadContainer: {
+    loadingThreads: "스레드를 불러오는 중...",
+    defaultThread: "기본",
+    newThread: "새 스레드",
+    startingThread: "스레드 시작 중...",
+    createThreadError: "스레드를 생성할 수 없습니다 - {{error}}",
+    deleteSelected: "선택 삭제",
+  },
+
+  //PromptInput
+  slashCommands: {
+    tooltip: "채팅을 위한 모든 슬래시 명령어 보기",
+    altText: "슬래시 명령어 버튼",
+  },
+
+  availableAgents: {
+    tooltip: "채팅에 사용할 수 있는 모든 에이전트 보기",
+    defaultAgent: "이 워크스페이스의 기본 에이전트입니다.",
+    customAgentsComingSoon: "맞춤 에이전트가 곧 제공됩니다!",
+    firstTime: {
+      title: "에이전트를 발견하셨습니다!",
+      description:
+        "에이전트는 문서와의 채팅을 넘어서는 특별한 기능을 가진 LLM입니다. 이제 에이전트를 사용하여 실시간 웹 검색 및 스크래핑, 문서 브라우저 저장, 문서 요약 등을 할 수 있습니다.",
+      earlyAccess:
+        "이 기능은 현재 얼리 액세스 중이며, 맞춤 통합 및 코드 실행을 포함한 맞춤 에이전트는 이후 업데이트에서 제공될 예정입니다.",
+      continue: "계속",
+    },
+  },
+
+  textSize: {
+    tooltip: "텍스트 크기 변경",
+    small: "작게",
+    normal: "보통",
+    large: "크게",
+  },
+
+  speechToText: {
+    tooltip: "프롬프트를 말하세요",
+    microphoneUnavailable:
+      "AnythingLLM이 마이크에 액세스할 수 없습니다. 이 기능을 사용하려면 이 사이트에 마이크 권한을 부여하십시오.",
+  },
+
+  //system-preferences
+  adminSystem: {
+    title: "시스템 설정",
+    description: "이것은 인스턴스의 전체 설정 및 구성입니다.",
+    saving: "저장 중...",
+    saveChanges: "변경 사항 저장",
+    toastSuccess: "시스템 설정이 성공적으로 업데이트되었습니다.",
+    limitTitle: "사용자당 하루 메시지 제한",
+    limitDescription:
+      "관리자가 아닌 사용자가 24시간 이내에 성공적인 쿼리 또는 채팅의 수를 제한합니다. 사용자가 OpenAI 비용을 증가시키는 것을 방지하기 위해 이 기능을 활성화하세요.",
+    messageLimit: "하루 메시지 제한",
+  },
+
   // Workspace Chats
   recorded: {
     title: "워크스페이스 채팅",
     description:
       "이것들은 사용자들이 보낸 모든 채팅과 메시지입니다. 생성 날짜별로 정렬되어 있습니다.",
     export: "내보내기",
+    exportSuccess: "{{name}} 형식으로 채팅이 성공적으로 내보내졌습니다.",
+    exportError: "채팅 내보내기에 실패했습니다.",
+    clearChats: "채팅 삭제",
+    confirmClear:
+      "모든 채팅을 삭제하시겠습니까?\n\n이 작업은 되돌릴 수 없습니다.",
+    clearSuccess: "모든 채팅이 삭제되었습니다.",
     table: {
       id: "ID",
       by: "보낸 사람",
@@ -293,6 +374,163 @@ const TRANSLATIONS = {
       prompt: "프롬프트",
       response: "응답",
       at: "보낸 시각",
+    },
+    previous: "이전 페이지",
+    next: "다음 페이지",
+  },
+
+  //LLM Preference
+  llmPreference: {
+    title: "LLM 기본 설정",
+    description:
+      "AnythingLLM은 다양한 LLM 제공자와 함께 작동할 수 있습니다. 이것은 채팅을 처리하는 서비스가 될 것입니다.",
+    search: "LLM 제공자 검색",
+    toastError: "LLM 설정 저장에 실패했습니다: {{error}}",
+    openai: {
+      apiKey: "API 키",
+      apiKeyPlaceholder: "OpenAI API 키",
+      modelSelection: "채팅 모델 선택",
+      loadingModels: "-- 사용 가능한 모델 로딩 중 --",
+    },
+    gemini: {
+      apiKeyPlaceholder: "Google Gemini API 키",
+      modelLabel: "모델 선택",
+      safetyLabel: "안전 설정",
+      safetyNone: "없음",
+      safetyFew: "적게 차단",
+      safetySome: "중간 차단 (기본값)",
+      safetyMost: "많이 차단",
+    },
+    huggingface: {
+      endpointLabel: "HuggingFace 추론 엔드포인트",
+      accessTokenLabel: "HuggingFace 액세스 토큰",
+      accessTokenPlaceholder: "HuggingFace 액세스 토큰",
+      tokenLimitLabel: "모델 토큰 제한",
+    },
+    ollama: {
+      maxTokens: "최대 토큰 수",
+      maxTokensDescription: "문맥과 응답을 위한 최대 토큰 수입니다.",
+      showManualEndpoint: "수동 엔드포인트 입력 표시",
+      hideManualEndpoint: "수동 엔드포인트 입력 숨기기",
+      baseUrl: "Ollama 기본 URL",
+      baseUrlDescription: "Ollama가 실행되고 있는 URL을 입력하세요.",
+      autoDetect: "자동 감지",
+      modelSelection: "Ollama 모델",
+      loadingModels: "--사용 가능한 모델 로딩 중--",
+      enterBaseUrl: "Ollama URL을 먼저 입력하세요",
+      modelSelectionDescription:
+        "사용할 Ollama 모델을 선택하세요. 유효한 Ollama URL을 입력하면 모델이 로드됩니다.",
+      loadedModels: "로드된 모델",
+      chooseModel: "대화를 위해 사용할 Ollama 모델을 선택하세요.",
+      modelLoadError: "사용자 모델을 가져오는 데 실패했습니다:",
+    },
+    lmstudio: {
+      alertMessage: "LMStudio를 사용하려면 임베딩 서비스를 설정해야 합니다.",
+      manageEmbedding: "임베딩 관리",
+      maxTokens: "최대 토큰 수",
+      maxTokensDescription: "컨텍스트 및 응답에 사용할 최대 토큰 수입니다.",
+      hideAdvancedControls: "수동 엔드포인트 입력 숨기기",
+      showAdvancedControls: "수동 엔드포인트 입력 표시",
+      baseUrlLabel: "LM 스튜디오 기본 URL",
+      autoDetect: "자동 감지",
+      enterUrl: "LM 스튜디오가 실행 중인 URL을 입력하세요.",
+      modelLabel: "LM 스튜디오 모델",
+      loadingModels: "--사용 가능한 모델 로딩 중--",
+      enterUrlFirst: "먼저 LM 스튜디오 URL을 입력하세요.",
+      modelDescription: "대화를 위해 사용할 LM 스튜디오 모델을 선택하세요.",
+      availableModels: "로드된 모델",
+      fetchError: "사용자 정의 모델을 가져오는 데 실패했습니다:",
+    },
+    localai: {
+      alertMessage:
+        "LocalAI를 LLM으로 사용하려면 임베딩 서비스를 설정해야 합니다.",
+      manageEmbedding: "임베딩 관리",
+      baseURL: "Local AI 기본 URL",
+      tokenLimit: "토큰 컨텍스트 창",
+      apiKey: "Local AI API 키",
+      optional: "선택 사항",
+      modelSelection: "채팅 모델 선택",
+      loadingModels: "-- 사용 가능한 모델 로드 중 --",
+      waitingForURL: "-- URL을 기다리는 중 --",
+      loadedModels: "로드된 모델",
+    },
+    togetherAi: {
+      apiKey: "Together AI API 키",
+      apiKeyPlaceholder: "Together AI API 키",
+      modelSelection: "채팅 모델 선택",
+      loadingModels: "-- 사용 가능한 모델 로드 중 --",
+    },
+    mistral: {
+      apiKeyLabel: "Mistral API 키",
+      apiKeyPlaceholder: "Mistral API 키",
+      modelLabel: "모델 선택",
+      loadingModels: "-- 사용 가능한 모델 로드 중 --",
+      waitingApiKey: "-- API 키를 기다리는 중 --",
+      availableModels: "사용 가능한 Mistral 모델",
+    },
+    perplexity: {
+      apiKey: "Perplexity API 키",
+      apiKeyPlaceholder: "Perplexity API 키",
+      modelSelection: "채팅 모델 선택",
+      loadingModels: "-- 사용 가능한 모델 로드 중 --",
+      availableModels: "사용 가능한 Perplexity 모델",
+    },
+    openrouter: {
+      apiKey: "OpenRouter API 키",
+      apiKeyPlaceholder: "OpenRouter API 키",
+      modelSelection: "채팅 모델 선택",
+      loadingModels: "-- 사용 가능한 모델 로드 중 --",
+    },
+    native: {
+      warning: "로컬에서 호스팅된 LLM은 실험적입니다. 주의해서 사용하세요.",
+      modelSelection: "모델 선택",
+      waitingModels: "-- 모델을 기다리는 중 --",
+      loadedModels: "로드된 모델",
+      tokenLimit: "토큰 컨텍스트 창",
+    },
+    litellm: {
+      baseURL: "기본 URL",
+      tokenLimit: "토큰 컨텍스트 창",
+      apiKey: "API 키",
+      optional: "선택 사항",
+      modelSelection: "채팅 모델 선택",
+      loadingModels: "-- 사용 가능한 모델 로드 중 --",
+      waitingForURL: "-- URL을 기다리는 중 --",
+      loadedModels: "로드된 모델",
+    },
+    textgenwebui: {
+      baseUrl: "기본 URL",
+      tokenWindow: "토큰 컨텍스트 창",
+      tokenWindowPlaceholder: "컨텍스트 창 제한 (예: 4096)",
+      apiKeyOptional: "API 키 (선택 사항)",
+      apiKeyPlaceholder: "TextGen Web UI API 키",
+    },
+    llms: {
+      openai: "대부분의 비상업적 사용에 적합한 표준 옵션입니다.",
+      azure: "Azure 서비스에서 호스팅되는 OpenAI의 엔터프라이즈 옵션입니다.",
+      anthropic: "Anthropic에서 호스팅하는 친절한 AI 비서입니다.",
+      gemini: "Google의 가장 크고 강력한 AI 모델입니다.",
+      huggingface:
+        "150,000개 이상의 오픈소스 LLM과 세계적인 AI 커뮤니티에 액세스하세요.",
+      ollama: "자신의 머신에서 LLM을 로컬로 실행합니다.",
+      lmstudio:
+        "수천 개의 최신 LLM을 몇 번의 클릭만으로 발견, 다운로드 및 실행하세요.",
+      localai: "자신의 머신에서 LLM을 로컬로 실행합니다.",
+      koboldcpp: "koboldcpp를 사용하여 로컬 LLM을 실행합니다.",
+      textgenwebui:
+        "Oobabooga의 텍스트 생성 웹 UI를 사용하여 로컬 LLM을 실행합니다.",
+      togetherai: "Together AI의 오픈 소스 모델을 실행합니다.",
+      mistral: "Mistral AI의 오픈 소스 모델을 실행합니다.",
+      perplexity:
+        "Perplexity AI에서 호스팅하는 강력하고 인터넷에 연결된 모델을 실행합니다.",
+      openrouter: "LLM을 위한 통합 인터페이스입니다.",
+      groq: "실시간 AI 애플리케이션을 위한 가장 빠른 LLM 추론입니다.",
+      cohere: "Cohere의 강력한 Command 모델을 실행합니다.",
+      litellm: "LiteLLM의 다양한 LLM을 위한 OpenAI 호환 프록시를 실행합니다.",
+      "generic-openai":
+        "사용자 정의 구성을 통해 모든 OpenAI 호환 서비스에 연결합니다.",
+      native:
+        "이 AnythingLLM 인스턴스에서 채팅을 위한 다운로드된 맞춤형 Llama 모델을 사용합니다.",
     },
   },
 
@@ -345,31 +583,201 @@ const TRANSLATIONS = {
   llm: {
     title: "LLM 기본 설정",
     description:
-      "이것은 채팅과 임베딩을 하기 위한 선호하는 LLM 제공자의 인증입니다. 이 키가 현재 활성 상태이고 정확해야 AnythingLLM이 제대로 작동합니다.",
+      "선호하는 LLM 채팅과 임베딩 제공자에 대한 인증 키 설정입니다. 이 키가 현재 활성 상태이고 정확해야 AnythingLLM이 제대로 작동합니다.",
     provider: "LLM 제공자",
+    searchPlaceholder: "사용 가능한 LLM 제공자 검색",
+    noneSelected: "선택되지 않음",
+    selectLLM: "LLM을 선택해야 합니다",
+    saving: "저장 중...",
+    saveChanges: "변경 사항 저장",
+    saveSuccess: "LLM 선호도가 성공적으로 저장되었습니다.",
+    saveError: "LLM 설정을 저장하지 못했습니다: {{error}}",
+    providers: {
+      defaultName: "시스템 기본값",
+      defaultDescription:
+        "이 워크스페이스에 시스템 기본 설정 LLM을 사용합니다.",
+      apiKeyLabel: "{{provider}} API 키",
+      apiKeyPlaceholder: "{{provider}} API 키",
+      modelLabel: "채팅 모델 선택",
+      openai: "가장 인기있는 LLM 표준 옵션입니다.",
+      azure: "Azure 서비스에서 호스팅되는 OpenAI의 엔터프라이즈 옵션입니다.",
+      anthropic: "Anthropic에서 호스팅하는 친숙한 AI 어시스턴트입니다.",
+      gemini: "Google의 가장 크고 능력 있는 AI 모델입니다.",
+      huggingface:
+        "150,000개 이상의 오픈 소스 LLM과 전세계 AI 커뮤니티에 접근하십시오.",
+      ollama: "자신의 머신에서 LLM을 로컬로 실행합니다.",
+      lmstudio:
+        "몇 번의 클릭만으로 수천 개의 최첨단 LLM을 발견, 다운로드하고 실행합니다.",
+      localai: "자신의 머신에서 LLM을 로컬로 실행합니다.",
+      togetherai: "Together AI의 오픈 소스 모델을 실행합니다.",
+      mistral: "Mistral AI의 오픈 소스 모델을 실행합니다.",
+      perplexity:
+        "Perplexity AI에서 호스팅하는 강력하고 인터넷에 연결된 모델을 실행합니다.",
+      openrouter: "LLM을 위한 통합 인터페이스입니다.",
+      groq: "실시간 AI 응용 프로그램을 위한 가장 빠른 LLM 추론을 제공합니다.",
+      koboldcpp: "koboldcpp를 사용하여 로컬 LLM을 실행합니다.",
+      textgenwebui:
+        "Oobabooga의 텍스트 생성 웹 UI를 사용하여 로컬 LLM을 실행합니다.",
+      cohere: "Cohere의 강력한 Command 모델을 실행합니다.",
+      litellm: "여러 LLM을 위한 LiteLLM의 OpenAI 호환 프록시를 실행합니다.",
+      genericopenai: "맞춤 구성을 통해 OpenAi 호환 서비스를 연결합니다.",
+      native:
+        "TeamplGPT 인스턴스에서 채팅하기 위해 다운로드한 맞춤형 Llama 모델을 사용합니다.",
+      safetyLabel: "안전 설정",
+      safety: {
+        none: "없음",
+        blockFew: "조금 차단",
+        blockSome: "일부 차단 (기본값)",
+        blockMost: "대부분 차단",
+      },
+      baseUrl: "기본 URL",
+      tokenContextWindow: "토큰 컨텍스트 창",
+      loadingModels: "-- 사용 가능한 모델 로드 중 --",
+      waitingForUrl: "-- URL 대기 중 --",
+      waitingForAPI: "-- API 대기 중 --",
+      apiKey: "API 키",
+      loadedModels: "로드된 모델",
+    },
+  },
+
+  azure: {
+    serviceEndpoint: "Azure 서비스 엔드포인트",
+    apiKeyLabel: "Azure API 키",
+    chatDeploymentName: "채팅 배포 이름",
+    chatDeploymentNamePlaceholder: "Azure OpenAI 채팅 모델 배포 이름",
+    chatModelTokenLimit: "채팅 모델 토큰 제한",
+    embeddingDeploymentName: "임베딩 배포 이름",
+    embeddingDeploymentNamePlaceholder: "Azure OpenAI 임베딩 모델 배포 이름",
+  },
+
+  huggingface: {
+    inferenceEndpoint: "HuggingFace 추론 엔드포인트",
+    accessToken: "HuggingFace 액세스 토큰",
+    accessTokenPlaceholder: "HuggingFace 액세스 토큰",
+    tokenLimit: "모델 토큰 제한",
+  },
+
+  genericOpenAi: {
+    baseUrl: "기본 URL",
+    chatModelName: "채팅 모델 이름",
+    chatModelNamePlaceholder: "채팅 요청에 사용되는 모델 ID",
+    tokenContextWindow: "토큰 컨텍스트 윈도우",
+    tokenContextWindowPlaceholder: "컨텍스트 윈도우 제한 (예: 4096)",
+    maxTokens: "최대 토큰 수",
+    maxTokensPlaceholder: "요청당 최대 토큰 수 (예: 1024)",
+  },
+
+  ollama: {
+    maxTokens: "최대 토큰 수",
+    maxTokensDescription: "컨텍스트 및 응답의 최대 토큰 수.",
+    hideManualInput: "수동 엔드포인트 입력 숨기기",
+    showManualInput: "수동 엔드포인트 입력 표시",
+    baseUrl: "Ollama 기본 URL",
+    baseUrlDescription: "Ollama가 실행 중인 URL을 입력하세요.",
+    autoDetect: "자동 감지",
+    enterUrlFirst: "먼저 Ollama URL을 입력하세요",
+    model: "Ollama 모델",
+    modelDescription:
+      "사용하려는 Ollama 모델을 선택하세요. 유효한 Ollama URL을 입력한 후 모델이 로드됩니다.",
+    maxChunkLength: "최대 임베딩 청크 길이",
+    maxChunkLengthDescription: "임베딩을 위한 텍스트 청크의 최대 길이.",
+  },
+
+  lmstudio: {
+    alertMessage:
+      "LMStudio를 LLM으로 사용하려면 임베딩 서비스를 설정해야 합니다.",
+    manageEmbedding: "임베딩 관리 →",
+    maxTokens: "최대 토큰 수",
+    maxTokensDescription: "컨텍스트 및 응답의 최대 토큰 수.",
+    hideManualInput: "수동 엔드포인트 입력 숨기기",
+    showManualInput: "수동 엔드포인트 입력 표시",
+    baseUrl: "LM Studio 기본 URL",
+    baseUrlDescription: "LM Studio가 실행 중인 URL을 입력하세요.",
+    autoDetect: "자동 감지",
+    enterUrlFirst: "먼저 LM Studio URL을 입력하세요",
+    model: "LM Studio 모델",
+    modelDescription:
+      "사용하려는 LM Studio 모델을 선택하세요. 유효한 LM Studio URL을 입력한 후 모델이 로드됩니다.",
+    maxChunkLength: "최대 임베딩 청크 길이",
+    maxChunkLengthDescription: "임베딩을 위한 텍스트 청크의 최대 길이.",
+  },
+
+  localai: {
+    alertMessage:
+      "LocalAI를 LLM으로 사용하려면 임베딩 서비스를 설정해야 합니다.",
+    manageEmbedding: "임베딩 관리 →",
+    baseUrl: "Local AI 기본 URL",
+    tokenContextWindow: "토큰 컨텍스트 윈도우",
+    apiKey: "Local AI API 키",
+    modelSelection: "채팅 모델 선택",
+    optional: "선택 사항",
+  },
+
+  textgenwebui: {
+    baseUrl: "기본 URL",
+    tokenContextWindow: "토큰 컨텍스트 윈도우",
+    tokenContextWindowPlaceholder: "컨텍스트 윈도우 제한 (예: 4096)",
+    apiKeyOptional: "API 키 (선택 사항)",
+  },
+
+  nativellm: {
+    experimentalWarning:
+      "로컬에서 호스팅되는 LLM 사용은 실험적입니다. 주의해서 사용하세요.",
+    modelSelection: "모델 선택",
+    waitingForModels: "-- 모델을 기다리는 중 --",
+    tokenContextWindow: "토큰 컨텍스트 윈도우",
   },
 
   transcription: {
     title: "텍스트 변환 모델 기본 설정",
     description:
-      "이것은 선호하는 텍스트 변환 모델 제공자의 인증입니다. 이 키가 현재 활성 상태이고 정확해야 미디어 파일 및 오디오가 텍스트 변환됩니다.",
+      "선호하는 텍스트 변환 모델 제공자의 인증입니다. 이 키가 현재 활성 상태이고 정확해야 미디어 파일 및 오디오가 텍스트 변환됩니다.",
     provider: "텍스트 변환 제공자",
     "warn-start":
       "RAM 또는 CPU 성능이 제한된 머신에서 로컬 위스퍼 모델을 사용하면 미디어 파일을 처리할 때 AnythingLLM이 중단될 수 있습니다.",
     "warn-recommend": "최소 2GB RAM과 10Mb 보다 작은 파일 업로드를 권장합니다.",
     "warn-end": "내장된 모델은 첫 번째 사용 시 자동으로 다운로드됩니다.",
+    searchPlaceholder: "텍스트 변환 제공자를 검색하십시오",
+    error: "환경 설정 저장 실패: {{error}}",
+    success: "텍스트 변환 기본 설정이 성공적으로 저장되었습니다.",
+    saving: "저장 중...",
+    saveChanges: "변경 사항 저장",
+    providers: {
+      openai: "API 키를 사용하여 OpenAI Whisper-large 모델을 활용합니다.",
+      local: "이 인스턴스에서 로컬로 위스퍼 모델을 실행합니다.",
+    },
   },
 
   embedding: {
     title: "임베딩 기본 설정",
     "desc-start":
-      "임베딩 엔진을 지원하지 않는 LLM을 사용할 때 텍스트를 임베딩하는 데 다른 임베딩 엔진 제공자의 인증이 필요할 수 있습니다.",
+      "임베딩 엔진을 지원하지 않는 LLM을 사용할 때 다른 임베딩 엔진 제공자의 인증이 필요할 수 있습니다.",
     "desc-end":
-      "임베딩은 텍스트를 벡터로 변환하는 과정입니다. 파일과 프롬프트를 AnythingLLM이 처리할 수 있는 형식으로 변환하려면 이러한 인증이 필요합니다.",
+      "임베딩은 텍스트를 벡터로 변환하는 과정입니다. 이 인증은 파일과 프롬프트를 AnythingLLM이 처리할 수 있는 형식으로 변환하기 위해 필요합니다.",
     provider: {
       title: "임베딩 제공자",
       description:
         "AnythingLLM의 기본 임베딩 엔진을 사용할 때는 설정이 필요하지 않습니다.",
+    },
+    error: "임베딩 설정을 저장하지 못했습니다: {{error}}",
+    success: "임베딩 기본 설정이 성공적으로 저장되었습니다.",
+    searchPlaceholder: "모든 임베딩 제공자를 검색하십시오",
+    modalWarning:
+      "임베딩 모델을 변경하면 채팅에서 이전에 임베딩된 문서가 작동하지 않게 됩니다. 모든 작업 공간에서 문서를 임베딩 해제하고 완전히 제거한 후 새 임베딩 모델로 다시 업로드해야 합니다.",
+    providers: {
+      native:
+        "AnythingLLM을 위한 기본 임베딩 제공자를 사용합니다. 설정이 필요하지 않습니다.",
+      openai: "비상업적 사용에 적합한 표준 옵션입니다.",
+      azure: "Azure 서비스에서 호스팅되는 OpenAI의 엔터프라이즈 옵션입니다.",
+      localai: "자신의 머신에서 임베딩 모델을 로컬로 실행합니다.",
+      ollama: "자신의 머신에서 임베딩 모델을 로컬로 실행합니다.",
+      lmstudio:
+        "수천 개의 최신 LLM을 몇 번의 클릭만으로 발견, 다운로드, 실행하십시오.",
+      cohere: "Cohere에서 강력한 임베딩 모델을 실행합니다.",
+      voyageai: "Voyage AI에서 강력한 임베딩 모델을 실행합니다.",
+      litellm: "LiteLLM에서 강력한 임베딩 모델을 실행합니다.",
+      "generic-openai":
+        "모든 OpenAI 호환 API 서비스에서 임베딩 모델을 실행합니다.",
     },
   },
 
@@ -403,6 +811,45 @@ const TRANSLATIONS = {
     provider: {
       title: "벡터 데이터베이스 제공자",
       description: "LanceDB를 선택하면 설정이 필요 없습니다.",
+      searchPlaceholder: "모든 벡터 데이터베이스 제공자 검색",
+    },
+    providers: {
+      lancedb:
+        "AnythingLLM과 동일한 인스턴스에서 실행되는 100% 로컬 벡터 DB입니다.",
+      chroma:
+        "오픈 소스 벡터 데이터베이스로 직접 호스팅하거나 클라우드에서 사용할 수 있습니다.",
+      pinecone:
+        "기업 사용 사례에 적합한 100% 클라우드 기반 벡터 데이터베이스입니다.",
+      zilliz:
+        "SOC 2 준수를 갖춘 엔터프라이즈용 클라우드 호스팅 벡터 데이터베이스입니다.",
+      qdrant: "로컬 및 분산 클라우드용 오픈 소스 벡터 데이터베이스입니다.",
+      weaviate:
+        "로컬 및 클라우드에서 호스팅되는 멀티모달 오픈 소스 벡터 데이터베이스입니다.",
+      milvus:
+        "오픈 소스, 고도로 확장 가능하며 매우 빠른 벡터 데이터베이스입니다.",
+      astra: "실제 GenAI 응용 프로그램을 위한 벡터 검색을 제공합니다.",
+    },
+    changeWarning:
+      "벡터 데이터베이스를 변경하면 이전에 임베딩된 문서와 향후 유사성 검색 결과가 무시됩니다. 각 워크스페이스에 다시 추가해야 합니다.",
+  },
+
+  //common
+  common: {
+    save: "저장",
+    saving: "저장 중...",
+  },
+
+  //stt
+  stt: {
+    title: "음성-텍스트 변환 기본 설정",
+    description:
+      "여기에서 AnythingLLM 경험에 사용할 텍스트 변환 및 음성-텍스트 변환 제공자를 지정할 수 있습니다. 기본적으로 브라우저의 내장 서비스를 사용하지만 다른 서비스를 사용할 수도 있습니다.",
+    provider: "제공자",
+    searchPlaceholder: "음성-텍스트 변환 제공자를 검색하십시오",
+    error: "환경 설정을 저장하지 못했습니다: {{error}}",
+    success: "음성-텍스트 변환 기본 설정이 성공적으로 저장되었습니다.",
+    providers: {
+      native: "브라우저의 내장 STT 서비스를 지원하는 경우 사용합니다.",
     },
   },
 
@@ -478,6 +925,447 @@ const TRANSLATIONS = {
     embedding: "임베딩 기본 설정",
     vector: "벡터 데이터베이스",
     anonymous: "익명 원격 분석 활성화",
+    info1:
+      "모든 이벤트는 IP 주소를 기록하지 않으며 <b>식별 가능한</b> 콘텐츠, 설정, 채팅 또는 기타 비사용 기반 정보를 포함하지 않습니다. 수집된 이벤트 태그 목록을 보려면 <a href='https://github.com/search?q=repo%3AMintplex-Labs%2Fanything-llm%20.sendTelemetry(&type=code' target='_blank' class='underline text-blue-400'>여기에서 Github</a>를 확인하세요.",
+    info2:
+      "오픈 소스 프로젝트로서 우리는 귀하의 개인정보 보호 권리를 존중합니다. 우리는 AI와 문서를 비공개 및 안전하게 통합할 수 있는 최고의 솔루션을 제공하는 데 전념하고 있습니다. 텔레메트리를 끄기로 결정하셨다면, 저희에게 피드백과 의견을 보내주시길 바랍니다. <a href='mailto:team@mintplexlabs.com' class='underline text-blue-400' target='_blank'>team@mintplexlabs.com</a>.",
+    enabledMessage: "익명 원격 분석이 활성화되었습니다.",
+    disabledMessage: "익명 원격 분석이 비활성화되었습니다.",
+  },
+
+  //Data Handling & Privacy
+  handlingPrivacy: {
+    title: "데이터 처리 및 개인정보 보호",
+    description:
+      "귀하의 개인 데이터에 대해 투명성과 통제권을 제공하는 데 전념하고 있습니다.",
+    setting: "이 설정은 언제든지 설정에서 재구성할 수 있습니다.",
+    llmSelectionPrivacy: {
+      openai: {
+        name: "OpenAI",
+        description: [
+          "귀하의 채팅은 훈련에 사용되지 않습니다.",
+          "응답 생성에 사용된 프롬프트와 문서 텍스트는 OpenAI에 표시됩니다.",
+        ],
+      },
+      azure: {
+        name: "Azure OpenAI",
+        description: [
+          "귀하의 채팅은 훈련에 사용되지 않습니다.",
+          "귀하의 텍스트 및 임베딩 텍스트는 OpenAI 또는 Microsoft에 표시되지 않습니다.",
+        ],
+      },
+      anthropic: {
+        name: "Anthropic",
+        description: [
+          "귀하의 채팅은 훈련에 사용되지 않습니다.",
+          "응답 생성에 사용된 프롬프트와 문서 텍스트는 Anthropic에 표시됩니다.",
+        ],
+      },
+      gemini: {
+        name: "Google Gemini",
+        description: [
+          "귀하의 채팅은 익명화되어 훈련에 사용됩니다.",
+          "응답 생성에 사용된 프롬프트와 문서 텍스트는 Google에 표시됩니다.",
+        ],
+      },
+      lmstudio: {
+        name: "LMStudio",
+        description: [
+          "모델과 채팅은 LMStudio를 실행하는 서버에서만 액세스할 수 있습니다.",
+        ],
+      },
+      localai: {
+        name: "LocalAI",
+        description: [
+          "모델과 채팅은 LocalAI를 실행하는 서버에서만 액세스할 수 있습니다.",
+        ],
+      },
+      ollama: {
+        name: "Ollama",
+        description: [
+          "모델과 채팅은 Ollama 모델을 실행하는 기기에서만 액세스할 수 있습니다.",
+        ],
+      },
+      native: {
+        name: "Custom Llama Model",
+        description: [
+          "모델과 채팅은 이 AnythingLLM 인스턴스에서만 액세스할 수 있습니다.",
+        ],
+      },
+      togetherai: {
+        name: "TogetherAI",
+        description: [
+          "귀하의 채팅은 훈련에 사용되지 않습니다.",
+          "응답 생성에 사용된 프롬프트와 문서 텍스트는 TogetherAI에 표시됩니다.",
+        ],
+      },
+      mistral: {
+        name: "Mistral",
+        description: [
+          "응답 생성에 사용된 프롬프트와 문서 텍스트는 Mistral에 표시됩니다.",
+        ],
+      },
+      huggingface: {
+        name: "HuggingFace",
+        description: [
+          "응답에 사용된 프롬프트와 문서 텍스트는 귀하의 HuggingFace 관리 엔드포인트로 전송됩니다.",
+        ],
+      },
+      perplexity: {
+        name: "Perplexity AI",
+        description: [
+          "귀하의 채팅은 훈련에 사용되지 않습니다.",
+          "응답 생성에 사용된 프롬프트와 문서 텍스트는 Perplexity AI에 표시됩니다.",
+        ],
+      },
+      openrouter: {
+        name: "OpenRouter",
+        description: [
+          "귀하의 채팅은 훈련에 사용되지 않습니다.",
+          "응답 생성에 사용된 프롬프트와 문서 텍스트는 OpenRouter에 표시됩니다.",
+        ],
+      },
+      groq: {
+        name: "Groq",
+        description: [
+          "귀하의 채팅은 훈련에 사용되지 않습니다.",
+          "응답 생성에 사용된 프롬프트와 문서 텍스트는 Groq에 표시됩니다.",
+        ],
+      },
+      koboldcpp: {
+        name: "KoboldCPP",
+        description: [
+          "모델과 채팅은 KoboldCPP를 실행하는 서버에서만 액세스할 수 있습니다.",
+        ],
+      },
+      textgenwebui: {
+        name: "Oobabooga Web UI",
+        description: [
+          "모델과 채팅은 Oobabooga 텍스트 생성 웹 UI를 실행하는 서버에서만 액세스할 수 있습니다.",
+        ],
+      },
+      "generic-openai": {
+        name: "Generic OpenAI compatible service",
+        description: [
+          "데이터는 귀하의 일반 엔드포인트 제공업체의 서비스 약관에 따라 공유됩니다.",
+        ],
+      },
+      cohere: {
+        name: "Cohere",
+        description: [
+          "데이터는 cohere.com의 서비스 약관 및 귀하의 지역 개인정보 보호법에 따라 공유됩니다.",
+        ],
+      },
+      litellm: {
+        name: "LiteLLM",
+        description: [
+          "모델과 채팅은 LiteLLM을 실행하는 서버에서만 액세스할 수 있습니다.",
+        ],
+      },
+    },
+    vectorDbPrivacy: {
+      chroma: {
+        name: "Chroma",
+        description: [
+          "벡터와 문서 텍스트는 Chroma 인스턴스에 저장됩니다.",
+          "인스턴스 접근은 귀하가 관리합니다.",
+        ],
+      },
+      pinecone: {
+        name: "Pinecone",
+        description: [
+          "벡터와 문서 텍스트는 Pinecone의 서버에 저장됩니다.",
+          "귀하의 데이터 접근은 Pinecone이 관리합니다.",
+        ],
+      },
+      qdrant: {
+        name: "Qdrant",
+        description: [
+          "벡터와 문서 텍스트는 귀하의 Qdrant 인스턴스(클라우드 또는 자체 호스팅)에 저장됩니다.",
+        ],
+      },
+      weaviate: {
+        name: "Weaviate",
+        description: [
+          "벡터와 문서 텍스트는 귀하의 Weaviate 인스턴스(클라우드 또는 자체 호스팅)에 저장됩니다.",
+        ],
+      },
+      milvus: {
+        name: "Milvus",
+        description: [
+          "벡터와 문서 텍스트는 귀하의 Milvus 인스턴스(클라우드 또는 자체 호스팅)에 저장됩니다.",
+        ],
+      },
+      zilliz: {
+        name: "Zilliz Cloud",
+        description: [
+          "벡터와 문서 텍스트는 귀하의 Zilliz 클라우드 클러스터에 저장됩니다.",
+        ],
+      },
+      astra: {
+        name: "AstraDB",
+        description: [
+          "벡터와 문서 텍스트는 귀하의 클라우드 AstraDB 데이터베이스에 저장됩니다.",
+        ],
+      },
+      lancedb: {
+        name: "LanceDB",
+        description: [
+          "벡터와 문서 텍스트는 이 AnythingLLM 인스턴스에 비공개로 저장됩니다.",
+        ],
+      },
+    },
+    embeddingEnginePrivacy: {
+      native: {
+        name: "AnythingLLM Embedder",
+        description: [
+          "문서 텍스트는 이 AnythingLLM 인스턴스에서 비공개로 임베딩됩니다.",
+        ],
+      },
+      openai: {
+        name: "OpenAI",
+        description: [
+          "문서 텍스트는 OpenAI 서버로 전송됩니다.",
+          "문서는 훈련에 사용되지 않습니다.",
+        ],
+      },
+      azure: {
+        name: "Azure OpenAI",
+        description: [
+          "문서 텍스트는 Microsoft Azure 서비스로 전송됩니다.",
+          "문서는 훈련에 사용되지 않습니다.",
+        ],
+      },
+      localai: {
+        name: "LocalAI",
+        description: [
+          "문서 텍스트는 LocalAI를 실행하는 서버에서 비공개로 임베딩됩니다.",
+        ],
+      },
+      ollama: {
+        name: "Ollama",
+        description: [
+          "문서 텍스트는 Ollama를 실행하는 서버에서 비공개로 임베딩됩니다.",
+        ],
+      },
+      lmstudio: {
+        name: "LMStudio",
+        description: [
+          "문서 텍스트는 LMStudio를 실행하는 서버에서 비공개로 임베딩됩니다.",
+        ],
+      },
+      cohere: {
+        name: "Cohere",
+        description: [
+          "데이터는 cohere.com의 서비스 약관 및 귀하의 지역 개인정보 보호법에 따라 공유됩니다.",
+        ],
+      },
+      voyageai: {
+        name: "Voyage AI",
+        description: [
+          "데이터는 voyageai.com의 서비스 약관에 따라 Voyage AI의 서버로 전송됩니다.",
+        ],
+      },
+      litellm: {
+        name: "LiteLLM",
+        description: [
+          "문서 텍스트는 LiteLLM을 실행하는 서버에서만 접근할 수 있으며, LiteLLM에 설정된 공급자에게만 전달됩니다.",
+        ],
+      },
+      "generic-openai": {
+        name: "Generic OpenAI compatible service",
+        description: [
+          "데이터는 귀하의 일반 엔드포인트 제공업체의 서비스 약관에 따라 공유됩니다.",
+        ],
+      },
+    },
+  },
+  //language preference
+  displayLanguage: {
+    title: "언어 설정",
+    description: "AnythingLLM의 UI에서 사용할 언어를 선택하세요.",
+  },
+
+  //supportEmail
+  supportEmail: {
+    title: "지원 이메일",
+    description:
+      "이 인스턴스에 로그인한 동안 사용자 메뉴에 표시될 지원 이메일 주소를 설정하세요.",
+    clearButton: "지우기",
+    saveButton: "저장",
+    updateFailed: "지원 이메일을 업데이트하지 못했습니다: {{error}}",
+    updateSuccess: "지원 이메일이 성공적으로 업데이트되었습니다.",
+  },
+
+  //customAppName
+  customAppName: {
+    title: "앱 이름 설정",
+    description: "로그인 페이지에 표시될 앱 이름을 설정하세요.",
+    placeholder: "AnythingLLM",
+    clearButton: "지우기",
+    saveButton: "저장",
+    updateFailed: "앱 이름 업데이트 실패: {{error}}",
+    updateSuccess: "앱 이름이 성공적으로 업데이트되었습니다.",
+  },
+
+  //Agentskills
+  agentSkills: {
+    "rag-memory": {
+      title: "RAG & 장기 기억",
+      description:
+        "에이전트가 로컬 문서를 활용하여 쿼리에 응답하거나, 장기 기억 검색을 위해 특정 콘텐츠를 '기억'하도록 요청할 수 있습니다.",
+    },
+    "view-summarize": {
+      title: "문서 보기 및 요약",
+      description:
+        "에이전트가 현재 임베디드된 작업 공간 파일의 내용을 나열하고 요약할 수 있습니다.",
+    },
+    "scrape-websites": {
+      title: "웹사이트 스크래핑",
+      description:
+        "에이전트가 웹사이트를 방문하고 그 내용을 스크랩하도록 허용합니다.",
+    },
+    "save-file-to-browser": {
+      title: "파일 생성 및 브라우저에 저장",
+      description:
+        "기본 에이전트가 파일을 생성하고 컴퓨터에 저장할 수 있도록 허용합니다.",
+      skill: "save-file-to-browser",
+    },
+    "create-chart": {
+      title: "차트 생성",
+      description:
+        "기본 에이전트가 제공된 데이터 또는 채팅에서 받은 데이터를 바탕으로 다양한 차트를 생성할 수 있도록 허용합니다.",
+      skill: "create-chart",
+    },
+    "web-browsing": {
+      title: "웹 검색",
+      skill: "web-browsing",
+    },
+    "sql-agent": {
+      title: "SQL 커넥터",
+      skill: "sql-agent",
+    },
+    saveFailed: "에이전트 설정 저장에 실패했습니다.",
+    saveSuccess: "에이전트 설정이 성공적으로 저장되었습니다.",
+    title: "에이전트 스킬",
+    description: "에이전트 스킬을 선택하세요",
+    default: "기본",
+  },
+
+  //contextSaveBar
+  contextSaveBar: {
+    unsaved: "저장되지 않은 변경 사항",
+    cancel: "취소",
+    save: "저장",
+  },
+
+  //agentDbConnection
+  agentDbConnection: {
+    title: "SQL 에이전트",
+    confirmDelete:
+      "{{database_id}}을(를) 사용 가능한 SQL 연결 목록에서 삭제하시겠습니까? 이 작업은 되돌릴 수 없습니다.",
+    description:
+      "에이전트가 다양한 SQL 데이터베이스 제공자에 연결하여 질문에 답변할 수 있도록 SQL을 활용할 수 있게 합니다.",
+    connection: "데이터베이스 연결 목록",
+    add: "새 SQL 연결",
+    fillOutFields: "모든 필드를 작성해 주세요.",
+    addDescription:
+      "아래에 데이터베이스 연결 정보를 추가하면, 이후 SQL 에이전트 호출 시 사용할 수 있습니다.",
+    warningMessage: `
+  <b>경고:</b> SQL 에이전트는 <i>비수정</i> 쿼리만 수행하도록 설정되었습니다. 
+  하지만 이 설정은 예기치 않은 동작으로 인해 데이터가 삭제되는 것을 <b>방지하지 못합니다</b>. 
+  반드시 <b>READ_ONLY</b> 권한이 있는 사용자로만 연결하세요.
+`,
+    selectEngine: "SQL 엔진 선택",
+    connectionName: "연결 이름",
+    namePlaceholder: "이 SQL 연결을 식별할 고유 이름",
+    username: "데이터베이스 사용자",
+    password: "데이터베이스 비밀번호",
+    host: "서버 엔드포인트",
+    hostPlaceholder: "데이터베이스의 호스트 이름 또는 엔드포인트",
+    port: "포트",
+    database: "데이터베이스",
+    databasePlaceholder: "에이전트가 상호작용할 데이터베이스",
+    cancel: "취소",
+    saveConnection: "연결 저장",
+  },
+
+  //searchProvidesOption
+  searchProviders: {
+    none: {
+      name: "선택해 주세요",
+      description: "웹 검색이 제공자와 키가 설정될 때까지 비활성화됩니다.",
+    },
+    googleSearch: {
+      name: "구글 검색 엔진",
+      description:
+        "사용자 지정 구글 검색 엔진을 통한 웹 검색. 하루 100회 무료 검색 가능.",
+    },
+    serperDotDev: {
+      name: "Serper.dev",
+      description: "Serper.dev 웹 검색. 2,500회 무료 사용, 이후 유료 전환.",
+    },
+    bingSearch: {
+      name: "빙 검색",
+      description:
+        "빙 검색 API로 구동되는 웹 검색. 한 달에 1,000회 무료 검색 가능.",
+    },
+    serply: {
+      name: "Serply.io",
+      description: "Serply.io 웹 검색. 월 100회 무료 검색 제공.",
+    },
+    searxng: {
+      name: "SearXNG",
+      description:
+        "개인 정보 추적 없이 사용할 수 있는 무료 오픈 소스 메타 검색 엔진.",
+    },
+    title: "실시간 웹 검색 및 탐색",
+    description:
+      " 에이전트가 웹 검색 엔진(SERP)과 연결되어 웹에서 정보를 검색하고 질문에 답할 수 있도록 설정하세요. 이 설정을 완료하지 않으면 에이전트가 웹 검색을 수행할 수 없습니다.",
+    searchPlaceholder: "사용 가능한 웹 검색 제공자를 검색하세요",
+  },
+  //searchProvidesOption
+  searchProvidesOption: {
+    googleSearch: {
+      description:
+        '무료 검색 엔진과 API 키를 <a href="https://programmablesearchengine.google.com/controlpanel/create" target="_blank" rel="noreferrer" class="text-blue-300 underline">여기에서 구글로부터 받을 수 있습니다.</a>',
+      searchEngineId: "검색 엔진 ID",
+      apiKey: "프로그래매틱 액세스 API 키",
+      placeholderEngineId: "구글 검색 엔진 ID",
+      placeholderApiKey: "구글 검색 엔진 API 키",
+    },
+    serperDotDev: {
+      description:
+        '무료 API 키를 <a href="https://serper.dev" target="_blank" rel="noreferrer" class="text-blue-300 underline">Serper.dev에서 받을 수 있습니다.</a>',
+      apiKey: "API 키",
+      placeholderApiKey: "Serper.dev API 키",
+    },
+    bingSearch: {
+      description:
+        'Bing 웹 검색 API 구독 키를 <a href="https://portal.azure.com/" target="_blank" rel="noreferrer" class="text-blue-300 underline">Azure 포털에서 받을 수 있습니다.</a>',
+      apiKey: "API 키",
+      placeholderApiKey: "Bing 웹 검색 API 키",
+      setupDescription: "Bing 웹 검색 API 구독 설정 방법:",
+      steps: {
+        step1:
+          'Azure 포털로 이동: <a href="https://portal.azure.com/" target="_blank" rel="noreferrer" class="text-blue-300 underline">https://portal.azure.com/</a>',
+        step2: "새로운 Azure 계정을 만들거나 기존 계정으로 로그인하세요.",
+        step3: '"리소스 생성" 섹션으로 이동하여 "Bing Search v7"을 검색하세요.',
+        step4: '"Bing Search v7" 리소스를 선택하고 새 구독을 만드세요.',
+        step5: "필요한 요금제를 선택하세요 (무료 요금제 사용 가능).",
+        step6: "Bing 웹 검색 구독에 대한 API 키를 받으세요.",
+      },
+    },
+    serply: {
+      description:
+        '무료 API 키를 <a href="https://serply.io" target="_blank" rel="noreferrer" class="text-blue-300 underline">Serply.io에서 받을 수 있습니다.</a>',
+      apiKey: "API 키",
+      placeholderApiKey: "Serply API 키",
+    },
+    searxng: {
+      baseUrl: "SearXNG API 기본 URL",
+      placeholderUrl: "SearXNG API 키",
+    },
   },
 };
 
