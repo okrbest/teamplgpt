@@ -8,7 +8,7 @@ export default function AnthropicAiOptions({ settings }) {
       <div className="w-full flex items-center gap-[36px] mt-1.5">
         <div className="flex flex-col w-60">
           <label className="text-white text-sm font-semibold block mb-3">
-          {t("llm.providers.apiKeyLabel", { provider: "Anthropic" })}
+            {t("llm.providers.apiKeyLabel", { provider: "Anthropic" })}
           </label>
           <input
             type="password"
@@ -27,7 +27,7 @@ export default function AnthropicAiOptions({ settings }) {
         {!settings?.credentialsOnly && (
           <div className="flex flex-col w-60">
             <label className="text-white text-sm font-semibold block mb-3">
-            {t("llm.providers.modelLabel")}
+              {t("llm.providers.modelLabel")}
             </label>
             <select
               name="AnthropicModelPref"
