@@ -84,6 +84,7 @@ export default function LiteLLMOptions({ settings }) {
 function LiteLLMModelSelection({ settings, basePath = null, apiKey = null }) {
   const [customModels, setCustomModels] = useState([]);
   const [loading, setLoading] = useState(true);
+  const { t } = useTranslation(); // Initialize translation hook
 
   useEffect(() => {
     async function findCustomModels() {
