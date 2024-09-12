@@ -355,6 +355,95 @@ const TRANSLATIONS = {
     messageLimit: "하루 메시지 제한",
   },
 
+  //Users
+  adminUsers: {
+    title: "사용자 관리",
+    description:
+      "이 인스턴스에 계정이 있는 모든 계정입니다. 계정을 제거하면 이 인스턴스에 대한 접근 권한이 즉시 제거됩니다.",
+    addUser: "사용자 추가",
+    username: "사용자 이름",
+    role: "역할",
+    dateAdded: "등록일",
+    edit: "편집",
+    suspend: "정지",
+    unsuspend: "정지 해제",
+    delete: "삭제",
+    suspendConfirm:
+      "{{username}} 사용자를 정지하시겠습니까?\n이 작업 후에는 이 인스턴스에 로그인할 수 없으며 관리자에 의해 정지가 해제되기 전까지 접속이 제한됩니다.",
+    unsuspendSuccess: "사용자가 더 이상 정지 상태가 아닙니다.",
+    suspendSuccess: "사용자가 정지되었습니다.",
+    deleteConfirm:
+      "{{username}} 사용자를 삭제하시겠습니까?\n이 작업 후에는 사용자가 더 이상 이 인스턴스를 사용할 수 없으며 이 작업은 되돌릴 수 없습니다.",
+    deleteSuccess: "사용자가 시스템에서 삭제되었습니다.",
+    permissionsTitle: "권한",
+    roleHint: {
+      default: [
+        "관리자나 매니저에 의해 추가된 워크스페이스에서만 채팅을 보낼 수 있습니다.",
+        "어떠한 설정도 수정할 수 없습니다.",
+      ],
+      manager: [
+        "워크스페이스를 보고, 생성하고, 삭제하며 워크스페이스 관련 설정을 수정할 수 있습니다.",
+        "인스턴스에 새로운 사용자를 생성, 수정 및 초대할 수 있습니다.",
+        "LLM, 벡터 DB, 임베딩 또는 기타 연결을 수정할 수 없습니다.",
+      ],
+      admin: [
+        "최고 수준의 사용자 권한입니다.",
+        "시스템 전반에 걸쳐 모든 것을 볼 수 있으며 모든 작업을 수행할 수 있습니다.",
+      ],
+    },
+    newUserModal: {
+      title: "사용자 추가",
+      username: "사용자 이름",
+      usernamePlaceholder: "사용자의 이름",
+      password: "비밀번호",
+      passwordPlaceholder: "사용자의 초기 비밀번호",
+      role: "역할",
+      roleDefault: "기본",
+      roleManager: "매니저",
+      roleAdmin: "관리자",
+      error: "오류",
+      afterCreateInfo:
+        "사용자를 생성한 후, 사용자는 초기 로그인 정보를 통해 접근해야 합니다.",
+      cancel: "취소",
+      addUser: "사용자 추가",
+    },
+    editUserModal: {
+      title: "사용자 편집",
+      username: "사용자 이름",
+      usernamePlaceholder: "사용자의 이름",
+      newPassword: "새 비밀번호",
+      passwordPlaceholder: "{{username}}의 새 비밀번호",
+      role: "역할",
+      roleDefault: "기본",
+      roleManager: "매니저",
+      roleAdmin: "관리자",
+      error: "오류",
+      cancel: "취소",
+      updateUser: "사용자 업데이트",
+    },
+  },
+
+  //Workspaces
+  adminWorkspaces: {
+    title: "인스턴스 작업공간",
+    description:
+      "이 인스턴스에 존재하는 모든 작업공간입니다. 작업공간을 제거하면 관련된 모든 채팅 및 설정이 삭제됩니다.",
+    newWorkspace: "새 작업공간",
+    name: "이름",
+    link: "링크",
+    users: "사용자",
+    createdOn: "생성일",
+    newWorkspaceTitle: "새 작업공간 생성",
+    workspaceNamePlaceholder: "작업공간 이름 입력",
+    creationInfo:
+      "이 작업공간을 생성한 후에는 관리자만 볼 수 있습니다. 생성 후 사용자를 추가할 수 있습니다.",
+    error: "오류",
+    cancel: "취소",
+    createWorkspace: "작업공간 생성",
+    confirmDelete:
+      "{{name}} 작업공간을 삭제하시겠습니까?\n이 작업을 수행하면 이 인스턴스에서 사용 불가능해집니다.\n\n이 작업은 되돌릴 수 없습니다.",
+  },
+
   // Workspace Chats
   recorded: {
     title: "워크스페이스 채팅",
@@ -377,6 +466,37 @@ const TRANSLATIONS = {
     },
     previous: "이전 페이지",
     next: "다음 페이지",
+  },
+
+  //Invite
+  adminInvites: {
+    title: "초대 관리",
+    description:
+      "조직 내 사람들이 초대 링크를 수락하고 가입할 수 있도록 초대 링크를 생성하세요. 초대 링크는 한 명의 사용자만 사용할 수 있습니다.",
+    createInviteLink: "초대 링크 생성",
+    status: "상태",
+    acceptedBy: "수락한 사용자",
+    createdBy: "생성자",
+    created: "생성일",
+    confirmDelete:
+      "이 초대를 비활성화하시겠습니까?\n비활성화 후에는 더 이상 사용할 수 없습니다.\n\n이 작업은 되돌릴 수 없습니다.",
+    disabled: "비활성화됨",
+    deletedUser: "삭제된 사용자",
+    copied: "복사됨",
+    copyInviteLink: "초대 링크 복사",
+    newInviteModal: {
+      title: "새 초대 생성",
+      error: "오류",
+      afterCreation:
+        "생성 후 초대를 복사하여 새 사용자에게 전송할 수 있으며, 해당 사용자는 기본 역할로 계정을 생성하고 선택한 워크스페이스에 자동으로 추가됩니다.",
+      autoAddWorkspace: "초대 받은 사람을 워크스페이스에 자동 추가",
+      workspaceInfo:
+        "아래의 워크스페이스를 선택하여 사용자를 자동으로 할당할 수 있습니다. 기본적으로 사용자는 표시되는 워크스페이스가 없습니다. 초대 수락 후 워크스페이스를 나중에 할당할 수 있습니다.",
+      cancel: "취소",
+      createInvite: "초대 생성",
+      copiedLink: "링크 복사됨",
+      copyInviteLink: "초대 링크 복사",
+    },
   },
 
   //LLM Preference
@@ -728,6 +848,19 @@ const TRANSLATIONS = {
     tokenContextWindow: "토큰 컨텍스트 윈도우",
   },
 
+  genericOpenAiOptions: {
+    baseUrlLabel: "기본 URL",
+    baseUrlPlaceholder: "예: https://proxy.openai.com",
+    apiKeyLabel: "API 키",
+    apiKeyPlaceholder: "서비스 API 키",
+    modelNameLabel: "챗 모델 이름",
+    modelNamePlaceholder: "챗 요청에 사용될 모델 ID",
+    tokenContextWindowLabel: "토큰 컨텍스트 윈도우",
+    tokenContextWindowPlaceholder: "컨텍스트 윈도우 제한 (예: 4096)",
+    maxTokensLabel: "최대 토큰 수",
+    maxTokensPlaceholder: "요청당 최대 토큰 수 (예: 1024)",
+  },
+
   transcription: {
     title: "텍스트 변환 모델 기본 설정",
     description:
@@ -745,6 +878,15 @@ const TRANSLATIONS = {
     providers: {
       openai: "API 키를 사용하여 OpenAI Whisper-large 모델을 활용합니다.",
       local: "이 인스턴스에서 로컬로 위스퍼 모델을 실행합니다.",
+    },
+  },
+
+  whisper: {
+    openai: {
+      apiKey: "API 키",
+      apiKeyPlaceholder: "OpenAI API 키",
+      model: "Whisper 모델",
+      defaultModel: "Whisper Large",
     },
   },
 
@@ -779,6 +921,99 @@ const TRANSLATIONS = {
       "generic-openai":
         "모든 OpenAI 호환 API 서비스에서 임베딩 모델을 실행합니다.",
     },
+    openai: {
+      apiKeyLabel: "API 키",
+      apiKeyPlaceholder: "OpenAI API 키",
+      modelPreferenceLabel: "모델 선호도",
+      availableModels: "사용 가능한 임베딩 모델",
+    },
+    localai: {
+      baseUrlLabel: "LocalAI 기본 URL",
+      baseUrlPlaceholder: "http://localhost:8080/v1",
+      maxChunkLengthLabel: "최대 임베딩 청크 길이",
+      maxChunkLengthPlaceholder: "1000",
+      apiKeyLabel: "Local AI API 키",
+      apiKeyPlaceholder: "sk-mysecretkey",
+      optionalLabel: "선택 사항",
+      hideAdvancedSettings: "고급 설정 숨기기",
+      showAdvancedSettings: "고급 설정 표시",
+      baseUrl: "LocalAI 기본 URL",
+      autoDetect: "자동 감지",
+      modelNameLabel: "임베딩 모델 이름",
+      loadingModels: "-- 사용 가능한 모델을 불러오는 중 --",
+      waitingForUrl: "-- URL을 기다리는 중 --",
+      loadedModelsLabel: "로드된 모델",
+    },
+    ollama: {
+      maxChunkLengthLabel: "최대 임베딩 청크 길이",
+      maxChunkLengthDescription: "임베딩을 위한 텍스트 청크의 최대 길이입니다.",
+      hideManualEndpointInput: "수동 엔드포인트 입력 숨기기",
+      showManualEndpointInput: "수동 엔드포인트 입력 표시",
+      baseUrlLabel: "Ollama 기본 URL",
+      baseUrlDescription: "Ollama가 실행 중인 URL을 입력하세요.",
+      autoDetect: "자동 감지",
+      modelLabel: "Ollama 임베딩 모델",
+      loadingModels: "-- 사용 가능한 모델을 불러오는 중 --",
+      enterUrlFirst: "먼저 Ollama URL을 입력하세요",
+      modelDescription: "임베딩을 위한 Ollama 모델을 선택하세요.",
+      loadedModelsLabel: "로드된 모델",
+    },
+    lmstudioOptions: {
+      maxChunkLengthLabel: "최대 임베딩 청크 길이",
+      maxChunkLengthHelper: "임베딩할 텍스트 청크의 최대 길이.",
+      hide: "숨기기",
+      show: "보이기",
+      manualEndpointInput: "수동 엔드포인트 입력",
+      baseUrlLabel: "LM 스튜디오 기본 URL",
+      autoDetect: "자동 감지",
+      baseUrlHelper: "LM 스튜디오가 실행 중인 URL을 입력하세요.",
+      modelSelectionLabel: "LM 스튜디오 임베딩 모델",
+      loadingModels: "--사용 가능한 모델을 불러오는 중--",
+      enterBaseUrl: "먼저 LM 스튜디오 URL을 입력하세요",
+      modelSelectionHelper:
+        "임베딩을 위한 LM 스튜디오 모델을 선택하세요. 유효한 LM 스튜디오 URL을 입력한 후 모델이 로드됩니다.",
+      loadedModelsLabel: "로드된 모델",
+    },
+    cohereOptions: {
+      apiKeyLabel: "API 키",
+      apiKeyPlaceholder: "Cohere API 키",
+      modelPrefLabel: "모델 선택",
+      modelOptGroupLabel: "사용 가능한 임베딩 모델",
+    },
+    voyageAiOptions: {
+      apiKeyLabel: "API 키",
+      apiKeyPlaceholder: "Voyage AI API 키",
+      modelPrefLabel: "모델 선택",
+      modelOptGroupLabel: "사용 가능한 임베딩 모델",
+    },
+    liteLLMOptions: {
+      baseUrlLabel: "기본 URL",
+      baseUrlPlaceholder: "http://127.0.0.1:4000",
+      chunkLengthLabel: "최대 임베딩 청크 길이",
+      chunkLengthPlaceholder: "8192",
+      apiKeyLabel: "API 키",
+      optional: "선택 사항",
+      apiKeyPlaceholder: "sk-내비밀키",
+      modelSelectionLabel: "임베딩 모델 선택",
+      loadingModels: "-- 사용 가능한 모델 로드 중 --",
+      waitingForUrl: "-- URL을 기다리는 중 --",
+      loadedModelsLabel: "로드된 모델",
+      tooltipMessage:
+        "유효한 임베딩 모델을 선택하십시오. 채팅 모델은 임베딩 모델이 아닙니다. 자세한 내용은",
+      tooltipLinkText: "이 페이지",
+      tooltipAdditionalInfo: "에서 확인하세요.",
+    },
+    genericOpenAiOptions: {
+      baseUrlLabel: "기본 URL",
+      baseUrlPlaceholder: "https://api.openai.com/v1",
+      modelLabel: "임베딩 모델",
+      modelPlaceholder: "text-embedding-ada-002",
+      chunkLengthLabel: "최대 임베딩 청크 길이",
+      chunkLengthPlaceholder: "8192",
+      apiKeyLabel: "API 키",
+      optional: "선택 사항",
+      apiKeyPlaceholder: "sk-내비밀키",
+    },
   },
 
   text: {
@@ -793,14 +1028,17 @@ const TRANSLATIONS = {
     size: {
       title: "텍스트 청크 크기",
       description: "단일 벡터에 들어갈 수 있는 최대 문자 길이입니다.",
+      placeholder: "벡터화된 텍스트의 최대 길이",
       recommend: "임베드 모델 최대 길이는",
     },
-
     overlap: {
       title: "텍스트 청크 겹침",
       description:
         "청킹 동안 두 인접 텍스트 청크 간에 겹칠 수 있는 최대 문자 수입니다.",
+      placeholder: "최대 겹침 길이",
     },
+    chunkOverlapError: "청크 겹침은 청크 크기보다 크거나 같을 수 없습니다.",
+    saveSuccess: "텍스트 청킹 전략 설정이 저장되었습니다.",
   },
 
   // Vector Database
@@ -829,6 +1067,52 @@ const TRANSLATIONS = {
         "오픈 소스, 고도로 확장 가능하며 매우 빠른 벡터 데이터베이스입니다.",
       astra: "실제 GenAI 응용 프로그램을 위한 벡터 검색을 제공합니다.",
     },
+    chromaDBOptions: {
+      endpointLabel: "Chroma 엔드포인트",
+      endpointPlaceholder: "http://localhost:8000",
+      apiHeaderLabel: "API 헤더",
+      apiHeaderPlaceholder: "X-Api-Key",
+      apiKeyLabel: "API 키",
+      apiKeyPlaceholder: "sk-myApiKeyToAccessMyChromaInstance",
+    },
+    pineconeDBOptions: {
+      apiKeyLabel: "Pinecone DB API 키",
+      apiKeyPlaceholder: "Pinecone API 키",
+      indexNameLabel: "Pinecone 인덱스 이름",
+      indexNamePlaceholder: "my-index",
+    },
+    zillizCloudOptions: {
+      endpointLabel: "클러스터 엔드포인트",
+      endpointPlaceholder: "https://sample.api.gcp-us-west1.zillizcloud.com",
+      apiTokenLabel: "API 토큰",
+      apiTokenPlaceholder: "Zilliz 클러스터 API 토큰",
+    },
+    qdrantDBOptions: {
+      endpointLabel: "QDrant API 엔드포인트",
+      endpointPlaceholder: "http://localhost:6633",
+      apiKeyLabel: "API 키",
+      apiKeyPlaceholder: "wOeqxsYP4....1244sba",
+    },
+    weaviateDBOptions: {
+      endpointLabel: "Weaviate 엔드포인트",
+      endpointPlaceholder: "http://localhost:8080",
+      apiKeyLabel: "API 키",
+      apiKeyPlaceholder: "sk-123Abcweaviate",
+    },
+    milvusDBOptions: {
+      addressLabel: "Milvus DB 주소",
+      addressPlaceholder: "http://localhost:19530",
+      usernameLabel: "Milvus 사용자 이름",
+      usernamePlaceholder: "사용자 이름",
+      passwordLabel: "Milvus 비밀번호",
+      passwordPlaceholder: "비밀번호",
+    },
+    astraDBOptions: {
+      endpointLabel: "Astra DB 엔드포인트",
+      endpointPlaceholder: "Astra DB API 엔드포인트",
+      applicationTokenLabel: "Astra DB 애플리케이션 토큰",
+      applicationTokenPlaceholder: "AstraCS:...",
+    },
     changeWarning:
       "벡터 데이터베이스를 변경하면 이전에 임베딩된 문서와 향후 유사성 검색 결과가 무시됩니다. 각 워크스페이스에 다시 추가해야 합니다.",
   },
@@ -850,6 +1134,35 @@ const TRANSLATIONS = {
     success: "음성-텍스트 변환 기본 설정이 성공적으로 저장되었습니다.",
     providers: {
       native: "브라우저의 내장 STT 서비스를 지원하는 경우 사용합니다.",
+      nativeConfiguration: "이 제공자에 대한 추가 설정은 필요하지 않습니다.",
+    },
+  },
+
+  //tts
+  tts: {
+    title: "음성 변환 기본 설정",
+    description:
+      "여기에서 AnythingLLM 경험에서 사용할 텍스트 음성 변환 제공자를 지정할 수 있습니다. 기본적으로 브라우저의 내장 지원을 사용하지만, 다른 서비스를 사용할 수도 있습니다.",
+    provider: "제공자",
+    searchPlaceholder: "음성 변환 제공자 검색",
+    error: "환경 설정을 저장하지 못했습니다: {{error}}",
+    success: "음성 변환 기본 설정이 성공적으로 저장되었습니다.",
+    providers: {
+      native: "브라우저의 내장 TTS 서비스를 사용합니다.",
+      openai: "OpenAI의 음성 변환 서비스를 사용합니다.",
+      elevenlabs: "ElevenLabs의 음성 변환 기술을 사용합니다.",
+      nativeConfiguration: "이 제공자에 대한 추가 설정은 필요하지 않습니다.",
+    },
+    openai: {
+      apiKeyLabel: "API 키",
+      apiKeyPlaceholder: "OpenAI API 키",
+      voiceModelLabel: "음성 모델",
+    },
+    elevenlabs: {
+      apiKeyLabel: "API 키",
+      apiKeyPlaceholder: "ElevenLabs API 키",
+      modelSelection: "모델 선택",
+      loading: "-- 사용 가능한 모델을 불러오는 중 --",
     },
   },
 
@@ -1272,10 +1585,10 @@ const TRANSLATIONS = {
     addDescription:
       "아래에 데이터베이스 연결 정보를 추가하면, 이후 SQL 에이전트 호출 시 사용할 수 있습니다.",
     warningMessage: `
-  <b>경고:</b> SQL 에이전트는 <i>비수정</i> 쿼리만 수행하도록 설정되었습니다. 
-  하지만 이 설정은 예기치 않은 동작으로 인해 데이터가 삭제되는 것을 <b>방지하지 못합니다</b>. 
-  반드시 <b>READ_ONLY</b> 권한이 있는 사용자로만 연결하세요.
-`,
+    <b>경고:</b> SQL 에이전트는 <i>비수정</i> 쿼리만 수행하도록 설정되었습니다. 
+    하지만 이 설정은 예기치 않은 동작으로 인해 데이터가 삭제되는 것을 <b>방지하지 못합니다</b>. 
+    반드시 <b>READ_ONLY</b> 권한이 있는 사용자로만 연결하세요.
+  `,
     selectEngine: "SQL 엔진 선택",
     connectionName: "연결 이름",
     namePlaceholder: "이 SQL 연결을 식별할 고유 이름",
@@ -1367,6 +1680,30 @@ const TRANSLATIONS = {
       placeholderUrl: "SearXNG API 키",
     },
   },
-};
 
+  //footer
+  footer: {
+    githubAriaLabel: "Github에서 찾기",
+    githubTooltip: "Github에서 소스 코드 보기",
+    docsAriaLabel: "문서",
+    docsTooltip: "AnythingLLM 도움말 문서 열기",
+    discordAriaLabel: "Discord 서버에 참여하기",
+    discordTooltip: "AnythingLLM Discord에 참여",
+  },
+  //agentConfig
+  agentConfig: {
+    title: "에이전트 스킬 설정",
+    description:
+      " 기본 에이전트의 기능을 사용자 지정하고 확장하려면 특정 스킬을 활성화하거나 비활성화하세요. 이 설정은 모든 워크스페이스에 적용됩니다.",
+  },
+
+  //members
+  members: {
+    userName: "사용자 이름",
+    role: "역할",
+    dateAdd: "추가된 날짜",
+    workspace: "워크스페이스 구성원이 없습니다",
+  },
+};
 export default TRANSLATIONS;
+
